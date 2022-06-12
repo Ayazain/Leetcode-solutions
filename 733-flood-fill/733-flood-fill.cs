@@ -9,7 +9,7 @@ public class Solution {
         if (color == newColor)
             return image ; 
         image[sr][sc] = newColor ; 
-        List<KeyValuePair<int , int >> visited  = new List <KeyValuePair<int , int >>();
+     //   List<KeyValuePair<int , int >> visited  = new List <KeyValuePair<int , int >>();
         Queue<KeyValuePair<int , int >> myqueue = new  Queue<KeyValuePair<int , int >>(); 
 		
         myqueue.Enqueue(new KeyValuePair<int , int >(sr , sc )); 
@@ -21,8 +21,7 @@ public class Solution {
 			KeyValuePair<int , int > elemnt  =  myqueue.Dequeue() ; 
 			x=elemnt.Key ; 
 			y = elemnt.Value; 
-				
-	       visited.Add(elemnt);
+	
             if(y>0 && image[x][y-1] == color  )
             {
                 image[x][y-1] = newColor; 

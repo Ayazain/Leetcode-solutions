@@ -27,23 +27,13 @@ public class Solution {
             KeyValuePair< TreeNode, int> node  = myqueue.Dequeue() ; 
             if (level != node.Value )
             {
-             
                 if(level %2 == 0 )
-                {
-                      foreach (int a in elemnt)  
-                   System.Console.Write(" before level "+ level + "     " +a );
                      elemnt=   elemnt.Reverse().ToList();
-                    foreach (int a in elemnt)  
-                   System.Console.Write(" After  level "+ level + "     " +a );
-                    }
              if(elemnt.Count !=0)
                  ret.Add(elemnt);
             elemnt  = new List<int>();
             level=  node.Value ;
             } 
-            
-              
-         
             TreeNode r  = node.Key.right ; 
             TreeNode l  = node.Key.left; 
                if(l!= null)
@@ -56,14 +46,6 @@ public class Solution {
                 myqueue.Enqueue(new KeyValuePair<TreeNode, int>(r,node.Value+1));
                 elemnt.Add(r.val);
            }
-               if(level%2 == 0)
-            {
-               // elemnt.Reverse(); 
-                   foreach (int a in elemnt)  
-                   System.Console.WriteLine("level "+ level + "     " +a );
-            }
-
-           
         }
    
        return  ret  ;

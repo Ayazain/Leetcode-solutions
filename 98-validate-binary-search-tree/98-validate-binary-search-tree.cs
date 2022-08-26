@@ -19,7 +19,7 @@ public class Solution {
           {
               return false ;
           }           
-         return  check(node.left , RIGHT , node.val)&check(node.right ,  node.val , LEFT) ; 
+         return  check(node.left , RIGHT , node.val)&&check(node.right ,  node.val , LEFT) ; 
        
     }
     public bool IsValidBST(TreeNode root)

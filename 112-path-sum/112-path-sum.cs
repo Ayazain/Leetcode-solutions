@@ -15,20 +15,17 @@ public class Solution {
       bool check(TreeNode node,  int sum , int targetSum  )
     {
         if (node == null)
-            return  false ;;
+            return  false ;
+            sum+=node.val;
         if (node.left == null && node.right == null)
         { 
-            sum+=node.val;
-            Console.WriteLine(sum );
             if (sum == targetSum)
                return true;
                else return false  ;  
         
         }
-        bool l = check(node.left, sum+node.val, targetSum) ;
-        bool r = check(node.right, sum+node.val , targetSum);
-       
-         return(l||r);
+    
+         return(check(node.left, sum, targetSum)||check(node.right, sum , targetSum));
 
     }
       public bool HasPathSum(TreeNode root, int targetSum) {

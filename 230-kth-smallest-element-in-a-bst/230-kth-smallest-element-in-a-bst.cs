@@ -12,14 +12,13 @@
  * }
  */
 public class Solution {
-    
-   List<int > sortedlist = new List<int>(); 
-    public int KthSmallest(TreeNode root, int k) 
+ SortedList<int, int > sortedlist = new SortedList<int, int>(); 
+   public int KthSmallest(TreeNode root, int k) 
     {
          DFS(root);
-         sortedlist.Sort();
+        // sortedlist.Sort();
          if(sortedlist.Count>=k)
-         return sortedlist[k-1]; 
+         return sortedlist.ElementAt(k-1).Key; 
          else return 0 ; 
     }
     private void DFS(TreeNode node )
@@ -31,7 +30,7 @@ public class Solution {
         }
         else
         {
-           sortedlist.Add(node.val);
+           sortedlist.Add(node.val, node.val);
            DFS(node.left);
            DFS(node.right);
         }

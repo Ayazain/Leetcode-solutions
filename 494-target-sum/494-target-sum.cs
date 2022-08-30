@@ -1,39 +1,17 @@
 public class Solution {
-        public int FindTargetSumWays(int[] nums, int target)
-    {
-       List<int > sums = new List<int>();
-       if (nums.Count() ==0) return 0;
-        
-       sums.Add(nums[0]);
-        sums.Add(-1*nums[0]);
-      
-        return   DFS(nums, 1,  target, sums);
+ public int Count = 0;
+    public int FindTargetSumWays(int[] nums, int target) {
+       Dfs(0,0, target, nums);
+       return Count;
     }
-    private int DFS(int[] nums, int index, int target, List<int> sums)
-    {
-        if (index == nums.Count())
-        {
-            int ret = 0;
-            for (int i = 0; i < sums.Count; i++)
-            { 
-                if (sums[i] == target)
-                    ret++;
-             //   Console.WriteLine(sums[i] );
-            }
-            return ret;
+    public void Dfs(int i, int result, int target, int[] nums) {
+        if(i == nums.Length) {
+            if(result == target)
+                Count++;
+            return;
         }
-        else
-        {
-            List<int> copy = new List<int>(sums);
-            for (int i = 0; i < sums.Count; i++)
-            {
-                copy[i] -= nums[index];
-                sums[i] += nums[index];
-            }
-            sums.AddRange(copy);
-            //Console.WriteLine(sums.Count);
-            return DFS(nums, index + 1, target, sums);
-        }
+        Dfs(i+1, result + nums[i], target, nums);
+        Dfs(i+1, result - nums[i], target, nums);
     }
 
 }

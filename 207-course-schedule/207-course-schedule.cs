@@ -33,15 +33,15 @@ Queue<int> order = new Queue<int>();
         while (order.Count > 0)
         {
             int Eelement = order.Dequeue();
-            REmoved[Eelement] = true;
-             
+           
             for (int i = 0; i < Mynodes[Eelement].Count; i++)
                 {
                     haveEdges[ Mynodes[Eelement][i]]--;
                     if (haveEdges[ Mynodes[Eelement][i]] == 0)
                         order.Enqueue( Mynodes[Eelement][i]);
                 }
-                
+                 REmoved[Eelement] = true;
+             
         }
         bool canfinish = true; ;
         for (int i = 0; i < REmoved.Length; i++)

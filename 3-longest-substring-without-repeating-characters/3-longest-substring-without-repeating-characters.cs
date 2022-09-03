@@ -10,24 +10,19 @@ public class Solution {
         {
             if(!mycharck.ContainsKey(s[EndIndex]))
             {
-               Console.WriteLine("right   "+ EndIndex + "   "+ s[EndIndex]);   
                 mycharck.Add(s[EndIndex] , EndIndex); 
                 myLength++; 
                 max = Math.Max(myLength,max );
-              Console.WriteLine( "len  = "+ myLength) ;
             } 
             else 
             {
-            Console.WriteLine("False    "+ EndIndex + "   "+ s[EndIndex]);   
-
              int dubindex = mycharck[s[EndIndex]];
              myLength-= (dubindex-startIndex);
-                Console.WriteLine( "len  = "+ myLength) ;
-             for (int i = startIndex ; i <=dubindex ; i++ )
+             for (int i = startIndex ; i <dubindex ; i++ )
                   mycharck.Remove(s[i]);
-                 mycharck.Add(s[EndIndex] , EndIndex); 
+                //mycharck.Add(s[EndIndex] , EndIndex); 
+                mycharck[s[EndIndex]] = EndIndex; 
              startIndex = dubindex+1 ; 
-          
             }
         }
         

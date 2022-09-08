@@ -14,5 +14,11 @@ public class Solution {
     }
 
     return max+1;    
+    
+
+        int num = 0  ;   
+        for (int i = 0 ; i < dp.Length ; i++)
+            if (dp[i] == max ) num++;
+    return num;    
     }
 }

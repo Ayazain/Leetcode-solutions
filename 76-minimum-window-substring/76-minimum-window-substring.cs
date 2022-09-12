@@ -10,7 +10,7 @@ public class Solution {
         return ret;
     }
     public string MinWindow(string t, string s) {
-      Dictionary<char, int> chars = new Dictionary<char, int>();
+        Dictionary<char, int> chars = new Dictionary<char, int>();
         Dictionary<char, int> truechars = new Dictionary<char, int>();
         int TotalLen = int.MaxValue; //  a new  Minimum 
         int Current = 0; //Length of sliding window 
@@ -35,7 +35,7 @@ public class Solution {
                 chars[t[end]]++;
             }
             Current++;
-            while (compare(truechars , chars))
+            while (Current >= s.Length && compare(truechars , chars))
             {
                 if (TotalLen > Current)// ubdate Length 
                 {

@@ -1,33 +1,64 @@
 public class Solution {
-    public  string LongestWord(string[] words) {
-        Array.Sort(words , (a,b)=> a.Length.CompareTo(b.Length)); 
-        Dictionary<string , int >newwords = new Dictionary<string, int>(); 
-        int Max  = int.MinValue ; int index = 0;
-         for(int i= 0 ; i <words.Length ; i++ ) 
-          if (!newwords.ContainsKey(words[i]))
-             newwords.Add(words[i] , words.Length);
-        
-        for (int i = words.Length-1 ; i >=0 ; i-- )
-         {
-            string s = words[i]; int counter = 0;  
-            while(s.Length>=1 && newwords.ContainsKey(s))
+   public class Trie
+    {
+        Dictionary<char, Trie> Child;
+        bool IsEnd;
+        public Trie()
+        {
+            Child = new Dictionary<char, Trie>();
+            IsEnd = false;
+        }
+        public Trie(bool _IsEnd)
+        {
+            Child = new Dictionary<char, Trie>();
+            IsEnd = _IsEnd;
+        }
+        public int Insert(string word)
+        {
+            Trie Start = this; int count = 0; bool iterative = true;
+            for (int i = 0; i < word.Length; i++)
             {
-             s = words[i].Substring(0, s.Length-1); 
-             counter++; 
-            }
-            
-            if (counter ==words[i].Length && counter >=Max)
-            {
-                 if (counter == Max)
+                if (!Start.Child.ContainsKey(word[i]))
                 {
-                   if( string.Compare(words[i], words[index])!= -1)
-                   continue;
+                    if (i != word.Length - 1)
+                        iterative = false;
+                    else
+                        count++;
+                    Start.Child.Add(word[i], new Trie((i >= word.Length - 1) ? true : false));
                 }
-                Max = counter  ;  
-                index = i ; 
+                else
+                {
+                    if (Start.Child[word[i]].IsEnd) count++;
+                    if (i == word.Length - 1) Start.Child[word[i]].IsEnd = true;
+                }
+                Start = Start.Child[word[i]];
             }
-         }   
-         return   (Max  == int.MinValue)?"":words[index];;
+            if (!iterative) return -1;
+            else
+                return count;
+        }
+      
+    }
 
+    public  string LongestWord(string[] words)
+    {
+        Trie start = new Trie();
+        Array.Sort(words, (a, b) => a.Length.CompareTo(b.Length));
+        int max = -1;
+        string word = "";
+        for (int i = 0; i < words.Length; i++)
+        {
+            int c = start.Insert(words[i]);
+            if (c == words[i].Length)
+                {
+                    if (c > max) { word = words[i]; max = c; }
+                    else if (c == max)
+                    {
+                        if (word.CompareTo(words[i]) == 1)
+                            word = words[i];
+                    }
+                }
+        }
+        return word;
     }
 }

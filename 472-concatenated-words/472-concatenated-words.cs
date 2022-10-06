@@ -1,7 +1,7 @@
 public class Solution {
     public IList<string> FindAllConcatenatedWordsInADict(string[] words)
     {
-        Array.Sort(words, (a, b) => a.Length.CompareTo(b.Length)); //  sort array  
+       // Array.Sort(words, (a, b) => a.Length.CompareTo(b.Length)); //  sort array  
         Dictionary<string, bool> lookup = new Dictionary<string, bool>(); //  map all valid strings 
         IList<string> res = new List<string>();
         foreach (string str in words)

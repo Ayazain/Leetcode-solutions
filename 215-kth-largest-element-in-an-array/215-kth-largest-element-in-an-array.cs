@@ -12,6 +12,6 @@ public class Solution {
        myqueue.Dequeue();
        k--; 
      }
-     return myqueue.Dequeue();
+     return  myqueue.Peek();
     }
 }

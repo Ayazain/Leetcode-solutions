@@ -1,6 +1,7 @@
 public class Solution {
     public  int FindKthLargest(int[] nums, int k) {
-       
+        
+         if (k==1) return nums.Max(); ; 
      PriorityQueue<int , int > myqueue = new PriorityQueue<int, int>(nums.Length+1 ) ;
      for(int i = 0 ; i < nums.Length ; i++)
      {

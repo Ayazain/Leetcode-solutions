@@ -1,17 +1,17 @@
 public class Solution {
-    public  void GenerateParanthesHelpper(int n  , int open , int closes , string str )
+   public  void GenerateParanthesHelpper(int n  , int open , int closes , string str )
 {
     if (open == n &&open == closes ) {par.Add(str) ; return ; }
     if (open < n )
     { 
          open++;
-        GenerateParanthesHelpper(n , open , closes , new String(str+'(')) ; 
+        GenerateParanthesHelpper(n , open , closes , str+'(') ; 
         open--;
     }
     if(closes<open) 
     {
         closes++; 
-          GenerateParanthesHelpper(n , open , closes , new String(str+')')) ; 
+          GenerateParanthesHelpper(n , open , closes , str+')') ; 
           closes--;
     }
 }

@@ -9,9 +9,8 @@ public class Solution {
       int i = index ; 
       while (Curr.Count< k && i <= n   )
       {
-       Curr.Add(i); 
-       CombineHellper(n , k  , i+1 , new List<int>(Curr)   ); 
-       Curr.Remove(i);
+      List<int > temp = new List<int>( Curr); temp.Add(i); 
+       CombineHellper(n , k  , i+1 , temp   ); 
        i++;
       }
       return  ; 

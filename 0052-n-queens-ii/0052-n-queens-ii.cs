@@ -1,11 +1,11 @@
 public class Solution {
     public int TotalNQueens(int n) {
      SolveNQueens(n) ;
-        return res.Count;
+        return res;
     }
-    public  List<IList<string>> res  = new List<IList<string>>();
+    public  int  res  =  0 ;
  public  List<string> All = new List<string>() ; 
-  public  IList<IList<string>> SolveNQueens(int n) {
+  public  int SolveNQueens(int n) {
         Char []arr =  new char[n];   
        for(int i = 0 ; i < n  ; i++ )
           {
@@ -26,7 +26,8 @@ public  void SolveNQueensHelpper(int [] colomns  , int row  ,  List<string> curr
 {
     if ( row < 0 )
     { 
-        res.Add(new List<string>(curr)); 
+        res++; 
+        return ;
     }
     for (int i = colomns.Length-1  ; i  >=0 ; i--)
     {

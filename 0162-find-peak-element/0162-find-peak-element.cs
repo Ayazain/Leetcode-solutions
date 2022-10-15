@@ -13,14 +13,10 @@ public   int FindPeakElement(int[] nums) {
       if (mid-1 < 0  || nums[mid-1]< nums[mid] )  right= true ;
       if ( mid+1 > nums.Length -1||  nums[mid+1]< nums[mid] ) left = true ; 
         if (left & right) return  mid ; 
-       else if  (right)  
+        if  (right)  
           return  FindPeakElementHelpper(nums ,mid+1 ,e  ); 
-        else if (left)
-        {
+     
           return  FindPeakElementHelpper(nums ,s ,mid-1  ); 
-        }  
-        else 
-         return  FindPeakElementHelpper(nums ,mid+1 ,e  ); 
-       
+
     }
 }

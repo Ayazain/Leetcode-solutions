@@ -9,7 +9,7 @@ public class Solution {
         if (index >= nums.Length-1) return true; 
         if (lookup.ContainsKey(index)) return lookup[index] ;
         bool res = false;
-        for (int i = 1; i <= nums[index]; i++)
+      for (int i = nums[index]; i > 0 ; i--)
         {
             res|= CanJumpHelpper(nums , index+i , lookup);
             if (res ) return true ; 

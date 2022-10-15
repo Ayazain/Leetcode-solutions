@@ -10,30 +10,19 @@
  * }
  */
 public class Solution {
-   public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
       ListNode res = new ListNode()  ; ListNode copy = res ; int count =0 ;
-        while(l1!=null && l2!=null)
-        {
-        int val = (l1.val+l2.val+count)%10  ; 
-        count = (l1.val+l2.val+count)/10;
-        copy.next = new ListNode(val); 
-        copy = copy.next ; l1=l1.next ; l2= l2.next;
+        while(l1!=null || l2!=null||count > 0 )
+        { 
+          int val  =0 ; 
+          if (l1!= null ) {val+= l1.val ; l1 =l1.next;}
+          if (l2!=null)   {val+=l2.val  ; l2= l2.next;}
+          val+= count ; 
+          count = val /10 ; 
+        copy.next = new ListNode(val%10); 
+        copy = copy.next ;
         }
-        while(l1!=null )
-        {
-        int val = (l1.val+ count)%10 ; 
-        count = (l1.val+count)/10;
-        copy.next = new ListNode(val); 
-        copy = copy.next ; l1=l1.next ;
-        }
-         while (l2!=null)
-        {
-          int val = (l2.val+ count)%10 ; 
-        count = (l2.val+count)/10;
-        copy.next = new ListNode(val); 
-        copy = copy.next ; l2=l2.next ;;
-        }
-       if (count > 0 ) copy .next = new ListNode(count);
+     
         return res.next;
     }
 }

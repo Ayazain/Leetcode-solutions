@@ -18,7 +18,7 @@ public class Solution {
           if (l1!= null ) {val+= l1.val ; l1 =l1.next;}
           if (l2!=null)   {val+=l2.val  ; l2= l2.next;}
           val+= count ; 
-          count = val /10 ; 
+        count = val /10 ; 
         copy.next = new ListNode(val%10); 
         copy = copy.next ;
         }

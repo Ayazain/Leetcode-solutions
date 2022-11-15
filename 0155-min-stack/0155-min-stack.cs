@@ -30,7 +30,7 @@ public class MinStack {
     
     public int GetMin() {
     
-       int  min  =  myMin.Peek(); 
-       return min; 
+       return   myMin.Peek(); 
+ 
     }
 }

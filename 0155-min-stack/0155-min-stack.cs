@@ -11,15 +11,16 @@ public class MinStack {
     public void Push(int val) {
   
       if (myvalues.Count() == 0 ||GetMin() >=  val) 
+         {
          myMin.Push(val);  
-         
+         }
       myvalues.Push(val); 
     }
     
    public void Pop() {
-     
-      if (GetMin() == myvalues.Pop() ) 
-          myMin.Pop();
+      int removedVal =   myvalues.Pop(); 
+      if (GetMin() == removedVal) 
+      myMin.Pop();
     }
     
     
@@ -27,7 +28,9 @@ public class MinStack {
          return myvalues.Peek(); 
     }
     
-    public int GetMin() {    
-       return  myMin.Peek();  
+    public int GetMin() {
+    
+       int  min  =  myMin.Peek(); 
+       return min; 
     }
 }

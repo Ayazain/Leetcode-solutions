@@ -12,7 +12,7 @@
     }
     
     public int Pop() {
-      int data =-1; 
+      int data ; 
         if (oldest.Count > 0 )
           data = oldest.Pop();
          
@@ -27,7 +27,7 @@
     }
     
     public int Peek() {
-        int data =-1; 
+        int data ; 
         if (oldest.Count > 0 )
           data = oldest.Peek();
          

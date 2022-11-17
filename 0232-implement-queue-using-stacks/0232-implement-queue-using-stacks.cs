@@ -12,27 +12,33 @@
     }
     
     public int Pop() {
+      int data ; 
         if (oldest.Count > 0 )
-           return oldest.Pop();
+          data = oldest.Pop();
+         
         else if ( newest.Count > 0 )
         { 
           while( newest.Count > 0) oldest.Push(newest.Pop());
-          return oldest.Pop(); 
+          data =  oldest.Pop(); 
         }  
         else 
-         return -1 ;  
+         data =  -1 ; 
+         return data ;  
     }
     
     public int Peek() {
-         if (oldest.Count > 0 )
-           return oldest.Peek();
+        int data ; 
+        if (oldest.Count > 0 )
+          data = oldest.Peek();
+         
         else if ( newest.Count > 0 )
         { 
           while( newest.Count > 0) oldest.Push(newest.Pop());
-          return oldest.Peek(); 
+          data =  oldest.Peek(); 
         }  
         else 
-         return -1 ;  
+         data =  -1 ; 
+         return data ;  
     }
     
     public bool Empty() {
@@ -40,7 +46,6 @@
         return false; 
     }
 }
-
 /**
  * Your MyQueue object will be instantiated and called as such:
  * MyQueue obj = new MyQueue();

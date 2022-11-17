@@ -1,4 +1,4 @@
-public class MyQueue {
+ public class MyQueue {
 
     Stack<int > oldest ; 
     Stack<int > newest; 
@@ -12,33 +12,19 @@ public class MyQueue {
     }
     
     public int Pop() {
-      int data ; 
-        if (oldest.Count > 0 )
-          data = oldest.Pop();
-         
-        else if ( newest.Count > 0 )
-        { 
-          while( newest.Count > 0) oldest.Push(newest.Pop());
-          data =  oldest.Pop(); 
-        }  
-        else 
-         return  -1 ; 
-         return data ;  
+     ShiftStack(); 
+     return oldest.Pop();
     }
     
+    public void ShiftStack()
+    {
+  if ( oldest.Count <= 0 &&  newest.Count > 0 )
+         { while( newest.Count > 0) oldest.Push(newest.Pop()); }  
+    }
+
     public int Peek() {
-        int data ; 
-        if (oldest.Count > 0 )
-          data = oldest.Peek();
-         
-        else if ( newest.Count > 0 )
-        { 
-          while( newest.Count > 0) oldest.Push(newest.Pop());
-          data =  oldest.Peek(); 
-        }  
-        else 
-         return  -1 ; 
-         return data ;  
+         ShiftStack();
+         return oldest.Peek() ;  
     }
     
     public bool Empty() {

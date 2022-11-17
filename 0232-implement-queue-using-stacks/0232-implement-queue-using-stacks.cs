@@ -22,7 +22,7 @@
           data =  oldest.Pop(); 
         }  
         else 
-         data =  -1 ; 
+         return  -1 ; 
          return data ;  
     }
     
@@ -37,7 +37,7 @@
           data =  oldest.Peek(); 
         }  
         else 
-         data =  -1 ; 
+         return  -1 ; 
          return data ;  
     }
     

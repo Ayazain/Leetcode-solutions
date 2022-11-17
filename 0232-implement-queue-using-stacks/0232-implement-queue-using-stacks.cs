@@ -21,7 +21,8 @@
           while( newest.Count > 0) oldest.Push(newest.Pop());
           data =  oldest.Pop(); 
         }  
-      
+        else 
+         return  -1 ; 
          return data ;  
     }
     
@@ -35,7 +36,8 @@
           while( newest.Count > 0) oldest.Push(newest.Pop());
           data =  oldest.Peek(); 
         }  
-      
+        else 
+         return  -1 ; 
          return data ;  
     }
     
